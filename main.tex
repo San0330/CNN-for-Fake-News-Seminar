@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage[left=3.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{acronym}
+\usepackage{subcaption}
+\usepackage{url}   % package to display url in monospace font
+
+\spacing{1.5}
+\setmainfont{Times New Roman}
+\graphicspath{{images/}}
+
+% Customizing the chapter title format
+\titleformat{\chapter}
+    [display]                                       % shape of the title (optional)
+    {\normalfont \Large\bfseries\centering}         % format applied to whole title
+    {Chapter \thechapter}                           % format for label
+    {2pt}                                           % Separation between label and title
+    {\Large}                                        % code before the title
+    []                                              % code after the title (optional)
+
+% Customizing the section title format
+\titleformat{\section}
+    {\normalfont\fontsize{15}{18}\bfseries}
+    {\thesection}
+    {1em}
+    {}
+
+% Customizing the subsection title format
+\titleformat{\subsection}
+    {\normalfont\fontsize{14}{16}\bfseries}
+    {\thesubsection}
+    {1em}
+    {}
+
+% Adjusting the spacing for chapter    
+\titlespacing{\chapter}
+    {0pt}                                    % left indent
+    {0pt}                                    % space before                    
+    {20pt}                                   % space after
+
+\AtBeginDocument{                            % delay execution of cmd until beginning of document
+    \renewcommand{\bibname}{References}      % redefine exisiting latex cmd, rename bibliography section to "References" 
+}
+
+\setlength{\parindent}{0pt}                  % first line of each paragraph will not be indented 
+
+
+\begin{document}
+    \include{coverpage}
+    \include{supervisor_recommendation}
+    \include{letter_of_approval}
+    
+    % Set the page numbering style to Roman numerals
+    \pagenumbering{roman}
+    % Set page style to 'plain' for all pages
+    \pagestyle{plain}
+
+    % Manually add Acknowledgement to the table of contents
+    \addcontentsline{toc}{section}{Acknowledgement}
+    \include{acknowledgement}
+   
+     % Manually add Abstract to the table of contents
+    \addcontentsline{toc}{section}{Abstract}
+    \include{abstract}
+
+    \tableofcontents
+
+    \newpage  
+    \addcontentsline{toc}{section}{List of Abbreviations}
+    \include{abbreviations}
+
+    \newpage    
+    \addcontentsline{toc}{section}{List of Figures}    
+    \listoffigures
+
+    \newpage
+    % Add list of tables and include it in the table of contents
+    \addcontentsline{toc}{section}{List of Tables}
+    \listoftables  
+    
+    \clearpage
+    
+     % Set the page numbering style to Arabic numerals
+    \pagenumbering{arabic}
+    
+    \include{chapter1_introduction}
+    \include{chapter2_previous_work_discussion_findings}
+    \include{chapter3_conclusions}  
+    
+    \bibliography{references}
+    \bibliographystyle{unsrt}
+    
+    \addcontentsline{toc}{section}{References}
+    
+\end{document}
