@@ -1,6 +1,6 @@
 
 This work researches a hybrid deep learning model that combines convolutional and recurrent neural networks and attention weights for fake news classiﬁcation.
-The presentation slide is given [here](https://tunepal-my.sharepoint.com/:p:/g/personal/santosh_795539_cdcsit_tu_edu_np/EVvVSvo1eBRBp3HjV4I1kLABoaMUhyIqFrW2immbM9P-Ag?e=5IyX52).
+The presentation slide is given [here]((https://drive.google.com/file/d/1utDyNoUbCiqX10O7InlZfAviTuNx-QfG/view?usp=sharing).
 
 The pdf file can be downloaded from this repository.
 
