@@ -1,10 +1,10 @@
-\chapter{Previous Works, Discussions and Findings}
+\chapter{Previous Works, Discussions, and Findings}
 
 \section{Background Study}
 
 \subsection{CNN}
 
-A \ac{cnn} is a specialized type of artificial neural network designed primarily for processing structured grid-like data, such as images. Unlike traditional neural networks, CNNs are specifically tailored to capture spatial hierarchies and patterns in data through a series of convolutional layers, pooling layers, and fully connected layers.
+A \ac{cnn} is a specialized artificial neural network designed primarily for processing structured grid-like data, such as images. Unlike traditional neural networks, CNNs are specifically tailored to capture spatial hierarchies and patterns in data through a series of convolutional layers, pooling layers, and fully connected layers.
 
 \begin{figure}[h]
     \centering
@@ -15,7 +15,7 @@ A \ac{cnn} is a specialized type of artificial neural network designed primarily
 
 \begin{description}
 
-    \item[1. Convolutional layer:] The convolutional layer applies convolutional operations to sequential data, such as sentences or documents. The input is typically a matrix where each row represents a word encoded as vector, often using word embeddings like Word2Vec, \ac{glove}. The convolutional layer uses filters (kernels) of various widths that slide over the input text to capture local patterns and n-grams.
+    \item[1. Convolutional layer:] The convolutional layer applies convolutional operations to sequential data, such as sentences or documents. The input is typically a matrix where each row represents a word encoded as a vector, often using word embeddings like Word2Vec, \ac{glove}. The convolutional layer uses filters (kernels) of various widths that slide over the input text to capture local patterns and n-grams.
 
     \item[2. Pooling layer:] Pooling layers, such as max pooling, are often used to downsample the feature maps, reducing their dimensionality while retaining the most critical features. For text, max pooling is commonly used to capture the most important feature (e.g., the highest value) from each feature map, regardless of its position.
    
@@ -25,7 +25,7 @@ A \ac{cnn} is a specialized type of artificial neural network designed primarily
 
 \subsection{CNN-LSTM}
 
-Combining \ac{cnn} with \ac{lstm} networks is a powerful technique for handling data with spatial and temporal dependencies. The CNN-LSTM architecture leverages the strengths of both CNNs and LSTMs to handle complex data with spatial and temporal characteristics. The output of the CNN layer (i.e. the feature maps) are the input for the \ac{rnn} layer of LSTM units/cells that follow. The RNN layer uses the local features extracted by the CNN and learns the long-term dependencies of the local features of news articles to classify them as fake or real. The proposed model is depicted in fig \ref{fig:cnn-lstm}. \\
+Combining \ac{cnn} with \ac{lstm} networks is a powerful technique for handling data with spatial and temporal dependencies. The CNN-LSTM architecture leverages the strengths of both CNNs and LSTMs to handle complex data with spatial and temporal characteristics. The output of the CNN layer (i.e. the feature maps) is the input for the \ac{rnn} layer of LSTM units/cells that follow. The RNN layer uses the local features extracted by CNN and learns the long-term dependencies of the local features of news articles to classify them as fake or real. The proposed model is depicted in fig \ref{fig:cnn-lstm}. \\
 
 \begin{figure}[h]
     \centering
@@ -48,7 +48,7 @@ The LSTM consists of the following control gates :
 
 \subsection{CNN-Attention}
 
-Combining \ac{cnn} with attention mechanisms is a powerful approach to enhance the ability of CNNs to focus on the most relevant parts of the input data. Attention mechanisms enable models to focus on the most relevant parts of the input data, dynamically weighting different parts based on their importance.
+Combining \ac{cnn} with attention mechanisms is a powerful approach to enhance the ability of CNNs to focus on the most relevant parts of the input data. Attention mechanisms enable models to focus on the most relevant parts of the input data, dynamically weighing different parts based on their importance.
 
 \begin{description}
 
@@ -58,20 +58,20 @@ Combining \ac{cnn} with attention mechanisms is a powerful approach to enhance t
 
 \section{Literature Review}
 
-Fake news detection has become an essential area of research due to the rapid spread of misinformation through social media and online news platforms. \ac{cnn}, originally designed for image processing, have shown significant promise in text classification tasks, including fake news detection. This literature review explores key developments, methodologies, and findings in using CNNs for detecting fake news.\\
+Fake news detection has become an essential area of research due to the rapid spread of misinformation through social media and online news platforms. \ac{cnn}, originally designed for image processing, has shown significant promise in text classification tasks, including fake news detection. This literature review explores key developments, methodologies, and findings in using CNNs for detecting fake news.\\
 
-Yoon Kim's seminal paper applied CNNs to sentence classification tasks. The model used static and dynamic word embeddings, and multiple filter sizes to capture various n-gram features. The study showed that CNNs could capture important local features and patterns in text data, which are crucial for distinguishing between fake and real news \cite{kim2014convolutional}. Wang extended the application of CNNs to fake news detection by training a CNN model on the LIAR dataset. This study highlighted the CNN's ability to learn intricate patterns in the text that are indicative of false or fake news, such as sensational language and specific word usage \cite{wang-2017-liar}. \\
+Yoon Kim's seminal paper applied CNNs to sentence classification tasks. The model used static and dynamic word embeddings, and multiple filter sizes to capture various n-gram features. The study showed that CNNs could capture important local features and patterns in text data, which are crucial for distinguishing between fake and real news \cite{kim2014convolutional}. Wang extended the application of CNNs to fake news detection by training a CNN model on the LIAR dataset. This study highlighted CNN's ability to learn intricate patterns in the text that are indicative of false or fake news, such as sensational language and specific word usage \cite{wang-2017-liar}. \\
 
 The study \cite{zhang2016characterlevel} proposed using CNNs directly on character-level text, bypassing the need for word embeddings. The model showed that character-level representations could be effective for text classification, especially in cases where word-level information might be sparse or noisy. Conneau and colleagues proposed using very deep CNNs with up to 29 convolutional layers. They demonstrated that deeper networks, along with residual connections, could capture more complex features and improve text classification accuracy \cite{conneau2017deep}.\\
 
-Combining CNNs with RNNs leverages the strengths of both architectures: CNNs for local feature extraction and RNNs for capturing sequential dependencies. Lai et al. introduced a Recurrent Convolutional Neural Network (RCNN) for text classification, which improved performance by combining convolutional and recurrent layers  \cite{Lai2015RecurrentCN}.  The research by Nasir et al. shows use of hybrid CNN-RNN model on two fake-news datasets (ISO and FA-KES) with better detection results than other non-hybrid baseline models \cite{hybrid-cnn-rnn}.\\
+Combining CNNs with RNNs leverages the strengths of both architectures: CNNs for local feature extraction and RNNs for capturing sequential dependencies. Lai et al. introduced a Recurrent Convolutional Neural Network (RCNN) for text classification, which improved performance by combining convolutional and recurrent layers  \cite{Lai2015RecurrentCN}.  The research by Nasir et al. shows the use of a hybrid CNN-RNN model on two fake-news datasets (ISO and FA-KES) with better detection results than other non-hybrid baseline models \cite{hybrid-cnn-rnn}.\\
 
 Attention mechanisms have been integrated with CNNs to enhance their ability to focus on relevant parts of the text. Yang et al. proposed a Hierarchical Attention Network (HAN) that applied attention at both word and sentence levels  \cite{yang-etal-2016-hierarchical}.  Attention mechanisms help in identifying key phrases and sentences that are indicative of fake news. \\
 
 \clearpage
 \section{Methodology}
 
-The image below shows the general workflow of CNN model for fake news classification. The process involves several steps, which are described below:
+The image below shows the general workflow of the CNN model for fake news classification. The process involves several steps, which are described below:
 
 \begin{figure}[h]
     \centering
@@ -83,7 +83,7 @@ The image below shows the general workflow of CNN model for fake news classifica
 \clearpage
 \subsection{Dataset Description}
 
-Input Data for this model is taken from kaggle \cite{fake-news-dataset}, an online repository known for its diverse collection of dataset and \ac{ml} competitions. The dataset consists of 20,761 entries, with 10,387 labeled as true news and the remaining 10,374 as fake news. In this research, the text field and label field of the data is used for training the model. The label has 1 for fake news and 0 for true news.
+Input Data for this model is taken from Kaggle \cite{fake-news-dataset}, an online repository known for its diverse collection of datasets and \ac{ml} competitions. The dataset consists of 20,761 entries, with 10,387 labeled as true news and the remaining 10,374 as fake news. In this research, the text field and label field of the data are used for training the model. The label has 1 for fake news and 0 for true news.
 
 \begin{figure}[h]
     \centering
@@ -94,7 +94,7 @@ Input Data for this model is taken from kaggle \cite{fake-news-dataset}, an onli
 
 \subsection{Data Cleaning and Preprocessing}
 
-Data cleaning and preprocessing is done to reduce noise or irrelevant information like stopwords. It helps to standardize text by converting it to lowercase, improves performance of model. The input data is passed to a function which converts text to lowercase, remove stopwords, and lemmatize each word. Lemmatization is the process of reducing words to their base or root form, which helps in standardizing words for tasks like text analysis and \ac{nlp}.
+Data cleaning and preprocessing are done to reduce noise or irrelevant information like stopwords. It helps to standardize text by converting it to lowercase, which improves the performance of the model. The input data is passed to a function that converts text to lowercase, removes stopwords, and lemmatizes each word. Lemmatization is the process of reducing words to their base or root form, which helps in standardizing words for tasks like text analysis and \ac{nlp}.
 
 \subsection{Tokenization and Sequencing}
 
@@ -102,11 +102,11 @@ To transform the text in each entry before feeding it to the CNN model, the firs
 
 \subsection{Padding and Embedding}
 
-Padding is done to ensure all sequences have same length. This is often done by padding shorter sequences with zeros or truncating longer sequences. Embedding in the context of \ac{nlp} refers to the representation of words (or tokens) as dense vectors of real numbers. These vectors capture semantic meanings and relationships between words, enabling the use of words in machine learning models. Embeddings transform words into a numerical form that preserves syntactic and semantic properties, making them suitable for neural networks and other machine learning algorithms. A pretrained \ac{glove} embedding is used. It is an unsupervised learning algorithm for obtaining vector representations for words. Unlike other word embeddings that are based solely on local context, \ac{glove} uses global statistical information from a corpus to produce dense word vectors.
+Padding is done to ensure all sequences have the same length. This is often done by padding shorter sequences with zeros or truncating longer sequences. Embedding in the context of \ac{nlp} refers to the representation of words (or tokens) as dense vectors of real numbers. These vectors capture semantic meanings and relationships between words, enabling the use of words in machine learning models. Embeddings transform words into a numerical form that preserves syntactic and semantic properties, making them suitable for neural networks and other machine learning algorithms. A pretrained \ac{glove} embedding is used. It is an unsupervised learning algorithm for obtaining vector representations for words. Unlike other word embeddings that are based solely on local context, \ac{glove} uses global statistical information from a corpus to produce dense word vectors.
 
 \subsection{Train-Test split}
 
-Dataset is divided into training and testing subsets. Training subset is used to train the model while testing subset is used to evaluate the trained model using metrics like accuracy score, precision, recall etc. 70 percent of dataset is used for training while 30 percent is used for testing. The number of epochs is adjusted during training to assess whether the model is overfitting or underfitting.
+The dataset is divided into training and testing subsets. The training subset is used to train the model while the testing subset is used to evaluate the trained model using metrics like accuracy score, precision, recall, etc. 70 percent of the dataset is used for training while 30 percent is used for testing. The number of epochs is adjusted during training to assess whether the model is overfitting or underfitting.
 
 \subsection{CNN and It's Variants}
     
@@ -115,7 +115,7 @@ Dataset is divided into training and testing subsets. Training subset is used to
     \subsubsection{\ac{cnn} model}
     \ac{cnn}s are effective at recognizing local patterns in text, such as specific phrases or word combinations, which can be indicative of fake news. It can learn discriminative features from text and can analyze the sentiment of text by detecting overly sensational or biased language often found in fake news. \\
     
-    The \ac{cnn} model uses two convolution layer each followed by dropout and max pooling layer. Dropout is used to avoid overfitting. \ac{cnn} captures the spatial pattern on text sequences which are then passed to fully connected layers to perform classification as shown in figure \ref{fig:cnn_model_architecture}. 
+    The \ac{cnn} model uses two convolution layers each followed by a dropout and max pooling layer. Dropout is used to avoid overfitting. \ac{cnn} captures the spatial pattern on text sequences which are then passed to fully connected layers to perform classification as shown in figure \ref{fig:cnn_model_architecture}. 
 
     \begin{figure}[h]
         \centering
@@ -127,7 +127,7 @@ Dataset is divided into training and testing subsets. Training subset is used to
     \clearpage
     
     \subsubsection{CNN-LSTM model}
-    It is a hybrid model which uses \ac{cnn} and \ac{lstm} layers. The pattern detected by \ac{cnn} are passed to \ac{rnn}/\ac{lstm} layer that learns the long-term dependencies of input text. \\
+    It is a hybrid model that uses \ac{cnn} and \ac{lstm} layers. The pattern detected by \ac{cnn} is passed to \ac{rnn}/\ac{lstm} layer that learns the long-term dependencies of input text. \\
 
     \ac{lstm}s are designed to capture long-range dependencies in sequences, making them well-suited for understanding context and nuances in news articles. It helps to model the relationship between words and sentences over the entire article making them suitable to use for fake news classification.
     
@@ -142,7 +142,7 @@ Dataset is divided into training and testing subsets. Training subset is used to
     \subsubsection{CNN-Attention model}
     It is also a hybrid model which computes attention scores for the data generated by the CNN layer. This hybrid approach leverages the local feature extraction capabilities of CNNs and the context-awareness of attention mechanisms, making it highly effective for tasks like fake news detection.\\
 
-    Attention mechanism calculates attention weights that signify the importance of each word (or feature) in the context of the entire article. It provides contextual information to each feature or word, which is crucial for classifying news as fake or true. The context vector is the weighted sum of the input vectors, with weights determined by the attention mechanism. The attention mechanism itself involves computing intermediate scores using a learned weight matrix W and bias vector b, applying the tanh activation function, and normalizing these scores with the softmax function to obtain the attention weights.
+    The attention mechanism calculates attention weights that signify the importance of each word (or feature) in the context of the entire article. It provides contextual information to each feature or word, which is crucial for classifying news as fake or true. The context vector is the weighted sum of the input vectors, with weights determined by the attention mechanism. The attention mechanism itself involves computing intermediate scores using a learned weight matrix W and bias vector b, applying the tanh activation function, and normalizing these scores with the softmax function to obtain the attention weights.
 
     \[
         \text{context} = \sum_i (\text{softmax}(\tanh(W \cdot x_i + b)) \cdot x_i)
@@ -158,16 +158,16 @@ Dataset is divided into training and testing subsets. Training subset is used to
 \clearpage
 \subsection{Evaluation}
 
-In order to determine the consistency and accuracy of a classification model, typical assessment metrics are determined according to,
+To determine the consistency and accuracy of a classification model, typical assessment metrics are determined according to,
 
 \begin{description}
     \item[Accuracy:] Accuracy is the ratio of correctly predicted instances to the total instances. It gives an overall measure of how often the model is correct.
     $$\text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Number of Instances}}$$
 
-    \item[Precision:] Precision (also called Positive Predictive Value) is the ratio of correctly predicted positive observations to total predicted positives. It tells you how many of the instances predicted as positive are actually positive.
+    \item[Precision:] Precision (also called Positive Predictive Value) is the ratio of correctly predicted positive observations to total predicted positives. It tells you how many of the instances predicted as positive are positive.
     $$ \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} $$
     
-    \item[Recall:]  Recall (also called Sensitivity or True Positive Rate) is the ratio of correctly predicted positive observations to the all observations in the actual class. It tells you how many of the actual positive instances were captured by the model.
+    \item[Recall:]  Recall (also called Sensitivity or True Positive Rate) is the ratio of correctly predicted positive observations to all observations in the actual class. It tells you how many of the actual positive instances were captured by the model.
     $$ \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} $$
 
     \item[F1 score:] The harmonic mean of recall and precision is the F1 Score. As a result, this score takes both false positives and false negatives into account. F1 score is more useful than accuracy when the class distribution is unbalanced.
@@ -178,12 +178,12 @@ In order to determine the consistency and accuracy of a classification model, ty
 \section{Implementation}
 
 \subsection{Implementation Tools}
-Python is used as the programming language to code the program. Google Colab is used as an \ac{ide}. Similarly, different libraries are also used as:
+Python is used as the programming language to code the program. Google Colab is used as an \ac{ide}. Similarly, different libraries are also used, such as:
 
 \begin{description}
-    \item[Tensorflow:] TensorFlow is used to build and train the CNN based Fake News classifier.
+    \item[Tensorflow:] TensorFlow is used to build and train the CNN-based Fake News classifier.
     \item[Keras:] Keras is used to simplify the process of building and training the CNN models.
-    \item[NLTK:] \ac{nltk} is a powerful library in Python for working with human language data.  It provides easy-to-use interfaces and text processing libraries for classification, tokenization, stemming, tagging, parsing, and more.
+    \item[NLTK:] \ac{nltk} is a powerful library in Python for working with human language data.  It provides easy-to-use interfaces and text-processing libraries for classification, tokenization, stemming, tagging, parsing, and more.
     \item[NumPy:] NumPy is used to store and manipulate training and testing data.
     \item[Pandas:] Pandas is used to load and clean training and testing data.
     \item[Matplotlib:] Matplotlib is used to visualize the results of the Fake News classifier.
@@ -191,7 +191,7 @@ Python is used as the programming language to code the program. Google Colab is 
 
 \subsection{Implementation Details}
 
-\subsubsection{Data Cleaning and Preprocessing} The train and test data are passed through a function which removes stopwords, lowercase, and then lemmatize each word for effective learning of model. The \ac{nltk} library is used to perform data cleaning and preprocessing.
+\subsubsection{Data Cleaning and Preprocessing} The train and test data are passed through a function that removes stopwords, and lowercase, and then lemmatizes each word for effective learning of the model. The \ac{nltk} library is used to perform data cleaning and preprocessing.
 
 \begin{figure}[h]
     \centering
@@ -200,7 +200,7 @@ Python is used as the programming language to code the program. Google Colab is 
     \label{fig:lemmatization}
 \end{figure}
 
-\subsubsection{Text Sequencing and Padding} The text data were transformed into sequences of words using a tokenizer, and each sequence was padded with zeros to have a fixed length of 500 words. This step ensured that all sequences had consistent dimensions for efficient processing. The sequence length of 500 words is chosen based on experiment on model's performance.
+\subsubsection{Text Sequencing and Padding} The text data were transformed into sequences of words using a tokenizer, and each sequence was padded with zeros to have a fixed length of 500 words. This step ensured that all sequences had consistent dimensions for efficient processing. The sequence length of 500 words is chosen based on the experiment on the model's performance.
 
 \begin{figure}[h]
     \centering
@@ -209,7 +209,7 @@ Python is used as the programming language to code the program. Google Colab is 
     \label{fig:sequencing_and_padding}
 \end{figure}
 
-\subsubsection{Embedding} The text sequences are converted to dense 100 dimensional vectors of real numbers using \ac{glove} embedding as shown in figure \ref{fig:embedding_with_glove}. The embeddings are trained on very large text corpora which ensures embeddings generalize well to new unseen text. The pre-trained weights also helps model to train faster without compromising peformance.
+\subsubsection{Embedding} The text sequences are converted to dense 100-dimensional vectors of real numbers using \ac{glove} embedding as shown in figure \ref{fig:embedding_with_glove}. The embeddings are trained on very large text corpora which ensures embeddings generalize well to new unseen text. The pre-trained weights also help the model to train faster without compromising performance.
 
 \begin{figure}[h]
     \centering
@@ -221,7 +221,7 @@ Python is used as the programming language to code the program. Google Colab is 
 \clearpage
 \subsubsection{CNN Architecture}
 \subsubsection{Baseline CNN}
-The CNN model consists of Embedding layer, two convolutional layers followed by pooling layer. The sequence of words are initially transformed into 100-dimensional vectors through an embedding layer, enhancing the model’s ability to process text input effectively. Dropout is used to combat overfitting in training data, finally the model is passed to dense layer. Convolution layer applies filter and, Pooling layer down-samples feature maps retaining most crucial features only. The model concludes with a softmax-activated dense layer, enabling binary classification.
+The CNN model consists of an Embedding layer, and two convolutional layers followed by a pooling layer. The sequence of words is initially transformed into 100-dimensional vectors through an embedding layer, enhancing the model’s ability to process text input effectively. Dropout is used to combat overfitting in training data, finally, the model is passed to a dense layer. The convolution layer applies the filter and the Pooling layer down-samples feature maps retaining the most crucial features only. The model concludes with a softmax-activated dense layer, enabling binary classification.
 
 \begin{figure}[ht]
     \centering
@@ -233,7 +233,7 @@ The CNN model consists of Embedding layer, two convolutional layers followed by 
 \clearpage
 
 \subsubsection{CNN-LSTM}
-The CNN-LSTM model uses CNN layers followed by LSTM layers. The CNN layer is similar to classic CNN architecture, LSTM layers consist of 50 units. The LSTM use tanh activation function and sigmoid for recurrent activation.
+The CNN-LSTM model uses CNN layers followed by LSTM layers. The CNN layer is similar to classic CNN architecture, LSTM layers consist of 50 units. The LSTM uses the tanh activation function and sigmoid for recurrent activation.
 
 \begin{figure}[h]
     \centering
@@ -243,7 +243,7 @@ The CNN-LSTM model uses CNN layers followed by LSTM layers. The CNN layer is sim
 \end{figure}
 
 \subsubsection{CNN-Attention}
-The CNN-Attention model uses CNN layer followed by an Attention layer. The Attention layer uses output from the preceding CNN layer to computes attention weights and produce a context vector. The code to calculate attention weights is shown in figure \ref{fig:attention-implementation}.
+The CNN-Attention model uses a CNN layer followed by an Attention layer. The Attention layer uses the output from the preceding CNN layer to compute attention weights and produce a context vector. The code to calculate attention weights is shown in figure \ref{fig:attention-implementation}.
 
 \begin{figure}[h]
     \centering
@@ -261,7 +261,7 @@ The CNN-Attention model uses CNN layer followed by an Attention layer. The Atten
 
 \clearpage
 \subsubsection{Model Optimization and Training} 
-For model optimization, Adam optimizer and binary cross-entropy loss function was utilized. The evaluation metrics included accuracy, precision, and recall. The models were trained for 12 epochs.
+For model optimization, the Adam optimizer and binary cross-entropy loss function were utilized. The evaluation metrics included accuracy, precision, and recall. The models were trained for 12 epochs.
 
 \subsubsection{Model Evaluation} 
 The models' performance is assessed using a test dataset by generating categorical predictions through the \lq predict\rq\  method. These predictions are compared to actual labels to form a confusion matrix, from which accuracy, precision, and recall are calculated to evaluate the models' effectiveness in classifying true or fake news.
@@ -275,7 +275,7 @@ The models' performance is assessed using a test dataset by generating categoric
 \section{Findings and Result}
 
 \subsection{Confusion Matrix}
-The confusion matrix displays the performance evaluation of a classification model on test dataset. It consists of actual classes and predicted classes.
+The confusion matrix displays the performance evaluation of a classification model on a test dataset. It consists of actual classes and predicted classes.
 
 \subsubsection{Confusion matrix of Baseline CNN}
 
@@ -328,7 +328,7 @@ The confusion matrix displays the performance evaluation of a classification mod
 
 % \clearpage
 \subsection{Accuracy Parameters} 
-The accuracy parameters using \ac{cnn} variants is evaluated on test dataset. The observations is listed below:
+The accuracy parameters using \ac{cnn} variants are evaluated on the test dataset. The observations are listed below:
 
 \begin{table}[h]
     \caption{Accuracy parameters of CNN variants}
@@ -350,7 +350,7 @@ The accuracy parameters using \ac{cnn} variants is evaluated on test dataset. Th
     \label{tab:accuracy_params_of_cnn_variants}
 \end{table}
 
-Comparing \ac{cnn} and it's variants, there is stable precision and recall while precision, recall and accuracy slightly increases for CNN-Attention variant. Based on accuracy parameters CNN-Attention has performed better.
+Comparing \ac{cnn} and its variants, there is stable precision and recall while precision, recall, and accuracy slightly increase for the CNN-Attention variant. Based on accuracy parameters CNN-Attention has performed better.
 \clearpage
 
 \subsection{Overfitting and Generalization} 
@@ -359,17 +359,17 @@ The training and validation loss and accuracy plots demonstrated a smooth conver
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.52]{accuracy images.png}
-    \caption{Training and validation accuracy over epochs for CNN, CNN-LSTM and CNN-Attention}  
+    \caption{Training and validation accuracy over epochs for CNN, CNN-LSTM, and CNN-Attention}  
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.52]{loss images.png}
-    \caption{Training and validation loss over epochs for CNN, CNN-LSTM and CNN-Attention}   
+    \caption{Training and validation loss over epochs for CNN, CNN-LSTM, and CNN-Attention}   
 \end{figure}
 \clearpage
 \subsection{Result Analysis}
-The accuracy, precision and recall observed on various \ac{cnn} models suggest that the local patterns detected by baseline \ac{cnn} like specific words or phrase combinations is enough for fake news classification. The long-range dependencies by LSTM layer did not increased accuracy by significant amount compared to CNN-Attention model, which suggests long-range dependencies is not much critical or enough for the task on current dataset. Better performance of CNN-Attention, +0.8\% accuracy than CNN-LSTM and +1.3\% accuracy than baseline CNN suggest, focusing on informative parts of the text by dynamically weighing using attention mechanism can enhance model performance. It highlights the fact that adding contextual information to words using attention mechanism is indeed useful. \\
+The accuracy, precision, and recall observed on various \ac{cnn} models suggest that the local patterns detected by baseline \ac{cnn} like specific words or phrase combinations are enough for fake news classification. The long-range dependencies by the LSTM layer did not increase accuracy by a significant amount compared to the CNN-Attention model, which suggests long-range dependencies are not critical or enough for the task on the current dataset. Better performance of CNN-Attention, +0.8\% accuracy than CNN-LSTM and +1.3\% accuracy than baseline CNN suggest, focusing on informative parts of the text by dynamically weighing using attention mechanism can enhance model performance. It highlights the fact that adding contextual information to words using an attention mechanism is indeed useful. \\
 
-The training and validation accuracy and loss over epoch is similar on all models suggesting, all models are converging to similar level of performance. Model are learning effectively from the data and are not significantly overfitting or underfitting. The models converges at 12\textsuperscript{th} epoch.
+The training and validation accuracy and loss over epoch are similar on all models suggesting, that all models are converging to a similar level of performance. Models are learning effectively from the data and are not significantly overfitting or underfitting. The models converges at 12\textsuperscript{th} epoch.
 

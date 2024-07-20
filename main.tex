@@ -8,7 +8,7 @@
 \usepackage{caption}
 \usepackage{acronym}
 \usepackage{subcaption}
-\usepackage{url}   % package to display url in monospace font
+\usepackage{url}   % package to display URL in monospace font
 
 \spacing{1.5}
 \setmainfont{Times New Roman}
@@ -37,14 +37,14 @@
     {1em}
     {}
 
-% Adjusting the spacing for chapter    
+% Adjusting the spacing for the chapter    
 \titlespacing{\chapter}
     {0pt}                                    % left indent
     {0pt}                                    % space before                    
     {20pt}                                   % space after
 
-\AtBeginDocument{                            % delay execution of cmd until beginning of document
-    \renewcommand{\bibname}{References}      % redefine exisiting latex cmd, rename bibliography section to "References" 
+\AtBeginDocument{                            % delay execution of cmd until the beginning of the document
+    \renewcommand{\bibname}{References}      % redefine existing latex cmd, rename bibliography section to "References" 
 }
 
 \setlength{\parindent}{0pt}                  % first line of each paragraph will not be indented 
@@ -79,7 +79,7 @@
     \listoffigures
 
     \newpage
-    % Add list of tables and include it in the table of contents
+    % Add a list of tables and include it in the table of contents
     \addcontentsline{toc}{section}{List of Tables}
     \listoftables  
     
